@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-/// @title Ethequino - Raffle Contract
+/// @title Etherquino - Raffle Contract
 /// @author Numa
 /// @notice We'll create a sample raffle
 /// @dev Implements Chainlink VRFv2
@@ -144,5 +144,38 @@ contract Raffle is VRFConsumerBaseV2 {
     /** Getter Functions */
     function getEntranceFee() external view returns (uint256) {
         return i_entranceFee;
+    }
+
+    function getRaffleState() external view returns (RaffleState) {
+        return s_raffleState;
+    }
+
+    function getInterval() external view returns (uint256) {
+        return i_interval;
+    }
+
+    function getGasLane() external view returns (bytes32) {
+        return i_gasLane;
+    }
+
+    function getCallbackGasLimit() external view returns (uint32) {
+        return i_callbackGasLimit;
+    }
+
+    function getSubscriptionId() external view returns (uint64) {
+        return i_subscriptionId;
+    }
+
+    function getLastTimestamp() external view returns (uint256) {
+        return s_lastTimestamp;
+    }
+
+    /// @notice this will reset after the raffle
+    function getPlayers() external view returns (address payable[] memory) {
+        return s_players;
+    }
+
+    function getLastWinner() external view returns (address) {
+        return s_recentWinner;
     }
 }
