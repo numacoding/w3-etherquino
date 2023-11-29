@@ -29,12 +29,12 @@ contract Raffle is VRFConsumerBaseV2 {
         CALCULATING //1
     }
 
-    /*State Variables */
+    /* State Variables */
     uint16 private constant REQUEST_CONFIRMATIONS = 3;
     uint32 private constant NUM_WORDS = 1;
 
     uint256 private immutable i_entranceFee;
-    // @dev duration of the lottery in seconds
+    /// @dev duration of the lottery in seconds
     uint256 private immutable i_interval;
     VRFCoordinatorV2Interface i_vrfCoordinator;
     bytes32 private immutable i_gasLane;
@@ -46,6 +46,7 @@ contract Raffle is VRFConsumerBaseV2 {
     address private s_recentWinner;
     RaffleState private s_raffleState;
 
+    /* Events */
     event EnteredRaffle(address indexed player);
     event PickedWinner(address indexed player);
 
@@ -142,6 +143,7 @@ contract Raffle is VRFConsumerBaseV2 {
     }
 
     /** Getter Functions */
+
     function getEntranceFee() external view returns (uint256) {
         return i_entranceFee;
     }
