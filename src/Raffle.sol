@@ -122,6 +122,7 @@ contract Raffle is VRFConsumerBaseV2 {
             NUM_WORDS //number of random numbers
         );
 
+        // @audit-issue redundant. requestRandomWords already emits an event
         emit RequestedRaffleWinner(requestId);
     }
 
